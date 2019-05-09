@@ -1,4 +1,11 @@
 # gamepads
+This repository provides examples of reading gamepad data in a Linux system. Examples are written in C and python.
+
+## Linux Joystick Input Interfaces
+Linux has two different joystick interfaces.
+1. /dev/input/jsX maps to the joystick API interface
+2. /dev/input/event* maps to the evdev interface.
+
 ## Logitech F310, Ubuntu 18.04
 1. Setting up the joystick
    -   The button on the back of the controller should be in the X position
