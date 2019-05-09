@@ -7,7 +7,7 @@ Linux has two different joystick interfaces.
 2. /dev/input/event* maps to the evdev interface.
 
 ## Logitech F310, Ubuntu 18.04
-1. Setting up the joystick
+1. Setting up the joystick for the Joystick API interface
    -   The button on the back of the controller should be in the X position
    -   Plug the gamepad into a usb port and open up a terminal
    -   Type `lsusb` and you should see similar output: `Bus 001 Device 007: ID 046d:c21d Logitech, Inc. F310 Gamepad [XInput Mode]`
