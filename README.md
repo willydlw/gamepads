@@ -40,12 +40,7 @@ Linux has two different joystick interfaces.
       Buttons:  0:off  1:off  2:off  3:off  4:off  5:off  6:off  7:off  8:off  9:off 10:off 
       ```
 
-   -   If the program does not run, list the device permissions. Type `ls -l /dev/input/js0` 
-   ```
-   crw-rw-r--+ 1 root input 13, 0 May  9 16:09 /dev/input/js0
-   ```
-   The owner of the file is root. As a superuser, the leftmost rw- means you have read and write permissions. The next rw-
-   are the group owner permission. The group owner is input. The r-- represents the user privileges. The user has read only privileges in this case. The leftmost c means this is a character device file type. Character device file types provide a serial stream of input or output.
+   -   If the program does not run, check the device permissions. Type `ls -l /dev/input/js0` 
    
    
 2. Testing the gamepad with the evdev interface
