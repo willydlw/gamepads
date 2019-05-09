@@ -23,7 +23,7 @@ Linux has two different joystick interfaces.
       --select           Same as --event, using select() call
       ```
 
-   -   Before running the program, you will need the <device> information. Type `ls /dev/input` for a listing of input devices.
+   -   Before running the program, you will need the device information. Type `ls /dev/input` for a listing of input devices.
    
    
       ```
