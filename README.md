@@ -16,6 +16,21 @@
       --select           Same as --event, using select() call
       ```
 
-   -   Before running the program, you will need the <device> information. Type `ls /dev/input' for a listing of input devices.
-
+   -   Before running the program, you will need the <device> information. Type `ls /dev/input` for a listing of input devices.
    
+   
+      ```
+      by-id    event0  event10  event12  event14  event16  event3  event5  event7  event9  mice    mouse1
+      by-path  event1  event11  event13  event15  event2   event4  event6  event8  js0     mouse0
+      ```
+      The joystick devices are listed as jsX, where the X is a placehoder for a number. In the example output above, the device is js0. When running the jstest program, the path /dev/input/js0 is needed.
+   -   Type either `jstest /dev/input/js0` or `jstest --normal /dev/input/js0`. The default mode is normal. You will see the joystick output on the screen. Move the thumbsticks and press the buttons to see the range of values.
+      ```
+      Driver version is 2.1.0.
+      Joystick (Logitech Gamepad F310) has 8 axes (X, Y, Z, Rx, Ry, Rz, Hat0X, Hat0Y) and 11 buttons (BtnA, BtnB, BtnX, BtnY, BtnTL, BtnTR, BtnSelect, BtnStart, BtnMode, BtnThumbL, BtnThumbR).
+      Testing ... (interrupt to exit)
+      Axes:  0:     0  1:    -2  2:-32767  3:     0  4:    -2  5:-32767  6:     0  7:     0 
+      Buttons:  0:off  1:off  2:off  3:off  4:off  5:off  6:off  7:off  8:off  9:off 10:off 
+```
+
+ 
