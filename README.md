@@ -7,11 +7,11 @@ Linux has two different joystick interfaces.
 2. /dev/input/event* maps to the evdev interface.
 
 ## Logitech F310, Ubuntu 18.04
-1. Setting up the joystick for the Joystick API interface
+1. Testing the gamepad with the Joystick API interface
    -   The button on the back of the controller should be in the X position
    -   Plug the gamepad into a usb port and open up a terminal
    -   Type `lsusb` and you should see similar output: `Bus 001 Device 007: ID 046d:c21d Logitech, Inc. F310 Gamepad [XInput Mode]`
-   If you do not see the above, then check the switch on the back is likely not in the X position. If you see `Bus 001 Device 008: ID 046d:c216 Logitech, Inc. Dual Action Gamepad`, then the switch is in the D (direct input) position.
+   If you do not see the above, then check the switch on the back is likely not in the X position. 
    -   With the switch in the X position, you can use the jstest program to verify the controller works. To install jstest, type `sudo apt install joystick`. Now type `jstest` and press the enter key. The output provides the following choices:
       ```
       Usage: jstest [<mode>] <device>
@@ -46,6 +46,22 @@ Linux has two different joystick interfaces.
    ```
    The owner of the file is root. As a superuser, the leftmost rw- means you have read and write permissions. The next rw-
    are the group owner permission. The group owner is input. The r-- represents the user privileges. The user has read only privileges in this case. The leftmost c means this is a character device file type. Character device file types provide a serial stream of input or output.
+   
+   
+2. Testing the gamepad with the evdev interface
+   -   The button on the back of the controller should be in the D (direct input) position
+   -   Plug the gamepad into a usb port and type `lsusb` in the terminal. You should see similar output: `Bus 001 Device 014: ID 046d:c216 Logitech, Inc. Dual Action Gamepad`
+   -   Find the joystick event number. Type `ls -l /dev/input/by-id/` and look for an ouput similar to `lrwxrwxrwx 1 root root 10 May  9 17:39 usb-Logitech_Logitech_Dual_Action_BBECCB89-event-joystick -> ../event16'
+   -   Type `evtest` and it will list input devices and their event numbers, similar to the output below.
+   ```
+   No device specified, trying to scan all of /dev/input/event*
+   Not running as root, no devices may be available.
+   Available devices:
+   /dev/input/event16:	Logitech Logitech Dual Action
+   Select the device event number [0-16]: 
+   ```
+   Enter the event number, 16 in this example and press the enter key. You will then see a listing of event codes and values. Press the gamepad buttons and thumbsticks to see the full range.
+   
  
  
  A thorough and much better explanation of joysticks in Linux is found [here](https://wiki.archlinux.org/index.php/Gamepad).
