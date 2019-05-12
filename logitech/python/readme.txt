@@ -64,12 +64,12 @@ b) python-evdev docs: http://python-evdev.readthedocs.io/en/latest/index.html
 *******************************************************
 *  Circumstances of programs
 *******************************************************
-Date: 7/18/18
+Date: 5/11/19
 
    The programs run successfully.  
    
-   The programs are developed and tested on Ubuntu 16.04,
-   using python 3.6.5
+   The programs are developed and tested on Ubuntu 18.04,
+   using python 3.6.7
 
    The programs have been tested on Raspbian Jessie 4.14, 
    using python 3.5.3
