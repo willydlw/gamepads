@@ -1,46 +1,55 @@
-from evdev import InputDevice, categorize, ecodes, KeyEvent, util
+def run():
+	from evdev import InputDevice, categorize, ecodes, KeyEvent, util
 
-devices = [InputDevice(fn) for fn in util.list_devices()]
+	devices = [InputDevice(fn) for fn in util.list_devices()]
 
+	found = False
 
-for device in devices:
+	for device in devices:
 
-	if device.name == 'Logitech Gamepad F710' or device.name == 'Logitech Gamepad F310':
-		gamePad = InputDevice(device.fn)
-		break
-
-
-
-print("\nPrint gamepad object information\n")
-print (gamePad)
-print("\n")
+		if device.name == 'Logitech Gamepad F710' or device.name == 'Logitech Gamepad F310':
+			gamePad = InputDevice(device.fn)
+			found = True
+			break
 
 
-print("Press gamepad buttons\n")
+	if found == False:
+		print("Device not found")
+		return
+
+	print("\nPrint gamepad object information\n")
+	print (gamePad)
+	print("\n")
 
 
-for event in gamePad.read_loop():
-	if event.type == ecodes.EV_KEY:
-		keyevent = categorize(event)
-		print(keyevent)
-		print("")
+	print("Press gamepad buttons\n")
 
-		if keyevent.keystate == KeyEvent.key_down:
-			print('key down detected')
-			print("keyevent.keycode")
-			print(keyevent.keycode)
+
+	for event in gamePad.read_loop():
+		if event.type == ecodes.EV_KEY:
+			keyevent = categorize(event)
+			print(keyevent)
 			print("")
 
-			if keyevent.keycode[1] == 'BTN_X':
-				print('button X\n')
-			elif keyevent.keycode[0] == 'BTN_B':
-				print('button B\n')
-			elif keyevent.keycode[0] == 'BTN_A':
-				print('button A\n')
-			elif keyevent.keycode[1] == 'BTN_Y':
-				print('button Y\n')
-			elif keyevent.keycode == 'BTN_TL':
-				print('button thumb left\n')
-			elif keyevent.keycode == 'BTN_TR':
-				print("button thumb right\n")
-		
+			if keyevent.keystate == KeyEvent.key_down:
+				print('key down detected')
+				print("keyevent.keycode")
+				print(keyevent.keycode)
+				print("")
+
+				if keyevent.keycode[1] == 'BTN_X':
+					print('button X\n')
+				elif keyevent.keycode[0] == 'BTN_B':
+					print('button B\n')
+				elif keyevent.keycode[0] == 'BTN_A':
+					print('button A\n')
+				elif keyevent.keycode[1] == 'BTN_Y':
+					print('button Y\n')
+				elif keyevent.keycode == 'BTN_TL':
+					print('button thumb left\n')
+				elif keyevent.keycode == 'BTN_TR':
+					print("button thumb right\n")
+
+
+if __name__ == "__main__":
+	run()
