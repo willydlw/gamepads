@@ -10,22 +10,7 @@
 
 Objective: Create programs detect gamepad events.
 
-Program 0: gamepad0.py
-		   prints list of all accessible evend devices
-
-
-Program 1: gamepad1.py
- 		   opens gamepad device, using symbolic link id
-		   prints the gamepad object information
-
-
-Program 2: gamepad2.py
-           prints list of connected devices
-           loops through the list and prints the device filename if the F710 or F310 
-              is connected
-
-
-Program 3: 	print_gamepad_events.py
+Program: 	print_gamepad_events.py
 
 			opens gamepad device
 			prints event object information
@@ -33,7 +18,7 @@ Program 3: 	print_gamepad_events.py
 			requires Ctrl+c for program termination
 
 			
-Program 4:	print_gamepad_categorize_event.py
+Program:	print_gamepad_categorize_event.py
 
 			opens gamepad device
 			prints the categorized event information
@@ -45,14 +30,14 @@ Program 4:	print_gamepad_categorize_event.py
 			requires Ctrl+c for program termination
 
 
-Program 5:	detect_gamepad_buttons.py
+Program:	detect_gamepad_buttons.py
 
 			opens gamepad device
 			prints all key events
 			for key down events
 				prints the name of the button pressed down
 
-Program 6:  detect_gamepad_axis_events.py
+Program:    detect_gamepad_axis_events.py
 			
 			opens gamepad device
 			prints all axis events
@@ -103,12 +88,7 @@ Date: 7/18/18
     % cd [directory_name] 
 
     run the script:
-    % python3 gamepad0.py 
-
-    % python3 gamepad1.py 
-
-    % python3 gamepad2.py 
-
+    
     % python3 print_gamepad_events.py
 
     % python3 print_gamepad_categorize_event.py
