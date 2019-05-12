@@ -60,3 +60,11 @@ Linux has two different joystick interfaces.
  
  
  A thorough and much better explanation of joysticks in Linux is found [here](https://wiki.archlinux.org/index.php/Gamepad).
+ 
+ 
+ ### Requirements
+ Install python evdev
+ ```
+ pip install evdev
+ ```
+ 
